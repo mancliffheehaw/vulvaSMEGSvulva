@@ -1,0 +1,13 @@
+import re
+import requests
+
+def scrape_emails(url):
+    r = requests.get(url)
+    emails = re.findall(r"[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+", r.text)
+    for email in emails:
+        print(email)
+
+# Example usage
+url = "http://example.com"
+scrape_emails(url)
+
